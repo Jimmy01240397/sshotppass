@@ -15,7 +15,7 @@ sh install.sh
 ```
 
 3. get your otp secert.
-- Scan otp orcode
+- Scan otp qrcode
 - And you will get this ``otpauth://totp/<otp name>?algorithm=SHA1&digits=6&issuer=<issuer>&period=30&secret=<otp secert>``
 - We need ``<otp secert>``
 
