@@ -14,7 +14,12 @@ cd sshotppass
 sh install.sh
 ```
 
-3. config your ``.sshotp`` in your home directory
+3. get your otp secert.
+- Scan otp orcode
+- And you will get this ``otpauth://totp/<otp name>?algorithm=SHA1&digits=6&issuer=<issuer>&period=30&secret=<otp secert>``
+- We need ``<otp secert>``
+
+4. config your ``.sshotp`` in your home directory
 ```
 vi ~/.sshotp
 
@@ -38,7 +43,7 @@ vi ~/.sshotp
   otpcmp: Changing MOTP
 ```
 
-4. If you have not connected to the host before, please use ssh to connect once.
+5. If you have not connected to the host before, please use ssh to connect once.
 ```
 # ssh <username>@<host>
 The authenticity of host '<host>' can't be established.
@@ -47,7 +52,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 Warning: Permanently added '<host>' (ECDSA) to the list of known hosts.
 ```
 
-5. And you can connect with sshotppass.
+6. And you can connect with sshotppass.
 ```
 sshotppass <keyname> ssh <username>@<host>
 
