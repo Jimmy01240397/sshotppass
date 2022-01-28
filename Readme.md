@@ -38,7 +38,16 @@ vi ~/.sshotp
   otpcmp: Changing MOTP
 ```
 
-4. And you can connect with sshotppass.
+4. If you have not connected to the host before, please use ssh to connect once.
+```
+# ssh <username>@<host>
+The authenticity of host '<host>' can't be established.
+ECDSA key fingerprint is SHA256:###.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '<host>' (ECDSA) to the list of known hosts.
+```
+
+5. And you can connect with sshotppass.
 ```
 sshotppass <keyname> ssh <username>@<host>
 

@@ -51,4 +51,5 @@ make
 sudo mv sshpass /usr/local/bin/sshpass
 
 cd ..
-cp sshotppass /usr/local/bin/sshotppass
+sudo cp sshotppass /usr/local/bin/sshotppass
+sudo chmod +x /usr/local/bin/sshotppass

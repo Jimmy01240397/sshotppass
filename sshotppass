@@ -1,6 +1,11 @@
 #!/bin/bash
 keyname=$1
 shift
+if [ "$keyname" == "" ]
+then
+        echo "usage: sshotppass <keyname> ssh <username>@<host>"
+        exit 0
+fi
 if [ "$(yq e ".$keyname.password" ~/.sshotp)" != "null" ]
 then
 	pwdc='-p'
