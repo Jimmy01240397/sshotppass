@@ -26,8 +26,7 @@ vi ~/.sshotp
 ```
 
 for example:
-
-
+![image](https://user-images.githubusercontent.com/57281249/151539520-fe8b60bc-0bea-465d-9344-fe0353cc2a3f.png)
 ```
 vi ~/.sshotp
 
