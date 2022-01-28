@@ -20,6 +20,9 @@ sh install.sh
 - We need ``<otp secert>``
 
 4. config your ``.sshotp`` in your home directory
+``` bash
+vi ~/.sshotp
+```
 ``` yaml
 <keyname>: 
   password: <yourpassword>
@@ -31,9 +34,10 @@ sh install.sh
 for example:
 
 ![image](https://user-images.githubusercontent.com/57281249/151539520-fe8b60bc-0bea-465d-9344-fe0353cc2a3f.png)
-```
+``` bash
 vi ~/.sshotp
-
+```
+``` yaml
 <keyname>: 
   password: <yourpassword>
   pwdcmp: Password
