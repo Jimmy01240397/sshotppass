@@ -1,0 +1,25 @@
+#!/bin/bash
+keyname=$1
+shift
+if [ "$(yq e ".$keyname.password" ~/.sshotp)" != "null" ]
+then
+	pwdc='-p'
+	pwd="$(yq e ".$keyname.password" ~/.sshotp)"
+fi
+if [ "$(yq e ".$keyname.otp" ~/.sshotp)" != "null" ]
+then
+	otpc='-c'
+	otp="oathtool --totp -b $(yq e ".$keyname.otp" ~/.sshotp)"
+fi
+if [ "$(yq e ".$keyname.pwdcmp" ~/.sshotp)" != "null" ]
+then
+	pwdcmpc='-P'
+	pwdcmp="$(yq e ".$keyname.pwdcmp" ~/.sshotp)"
+fi
+if [ "$(yq e ".$keyname.otpcmp" ~/.sshotp)" != "null" ]
+then
+	otpcmpc='-O'
+	otpcmp="$(yq e ".$keyname.otpcmp" ~/.sshotp)"
+fi
+sshpass $pwdc "$pwd" $otpc "$otp" $pwdcmpc "$pwdcmp" $otpcmpc "$otpcmp" $@
+
