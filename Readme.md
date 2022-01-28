@@ -20,9 +20,7 @@ sh install.sh
 - We need ``<otp secert>``
 
 4. config your ``.sshotp`` in your home directory
-```
-vi ~/.sshotp
-
+``` yaml
 <keyname>: 
   password: <yourpassword>
   pwdcmp: <ssh password title>
