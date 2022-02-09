@@ -8,23 +8,19 @@ then
 fi
 if [ "$(yq e ".$keyname.password" ~/.sshotp)" != "null" ]
 then
-	pwdc='-p'
-	pwd="$(yq e ".$keyname.password" ~/.sshotp)"
+	pwd="-p "$(yq e ".$keyname.password" ~/.sshotp | sed "s/ /\\ /g")
 fi
 if [ "$(yq e ".$keyname.otp" ~/.sshotp)" != "null" ]
 then
-	otpc='-c'
-	otp="oathtool --totp -b $(yq e ".$keyname.otp" ~/.sshotp)"
+	otp="-c oathtool\ --totp\ -b\ $(yq e ".$keyname.otp" ~/.sshotp | sed "s/ /\\ /g")"
 fi
 if [ "$(yq e ".$keyname.pwdcmp" ~/.sshotp)" != "null" ]
 then
-	pwdcmpc='-P'
-	pwdcmp="$(yq e ".$keyname.pwdcmp" ~/.sshotp)"
+	pwdcmp="-P $(yq e ".$keyname.pwdcmp" ~/.sshotp | sed "s/ /\\ /g")"
 fi
 if [ "$(yq e ".$keyname.otpcmp" ~/.sshotp)" != "null" ]
 then
-	otpcmpc='-O'
-	otpcmp="$(yq e ".$keyname.otpcmp" ~/.sshotp)"
+	otpcmp="-O $(yq e ".$keyname.otpcmp" ~/.sshotp | sed "s/ /\\ /g")"
 fi
-sshpass $pwdc "$pwd" $otpc "$otp" $pwdcmpc "$pwdcmp" $otpcmpc "$otpcmp" $@
+sshpass $pwd $otp $pwdcmp $otpcmp $@
 
